@@ -1,0 +1,31 @@
+START-OF-LOG: 3.0
+LOCATION: DX
+CALLSIGN: PA3JD
+CLUB: A-26
+CONTEST: DX
+CATEGORY-OPERATOR: SINGLE-OP
+CATEGORY-ASSISTED: 
+CATEGORY-BAND: ALL
+CATEGORY-MODE: MIXED
+CATEGORY-POWER: HIGH
+CATEGORY-STATION: 
+CATEGORY-TIME: 
+CATEGORY-TRANSMITTER: 
+CLAIMED-SCORE: 6
+OPERATORS: PA3JD
+NAME: Joop van der Does
+ADDRESS: De Roerdomp 44
+ADDRESS-CITY: Dedemsvaart
+ADDRESS-STATE-PROVINCE: 
+ADDRESS-POSTALCODE: 7701RP
+ADDRESS-COUNTRY: NETHERLANDS
+GRID-LOCATOR: JO32FO
+EMAIL: does54@hetnet.nl
+CREATED-BY: N1MM Logger+ 1.0.10051.0
+QSO:  3500 CW 2024-03-21 1906 PA3JD         599  G7D           589  Graham     NM                                       
+QSO:  7000 CW 2024-03-21 1912 PA3JD         599  PA7F          599  Frank      181                                      
+QSO:  7000 CW 2024-03-21 1914 PA3JD         599  PA0CMU        599  Carel      076                                      
+QSO:  7000 CW 2024-03-21 1922 PA3JD         599  M7MPM         599  Michael    227                                      
+QSO:  7000 CW 2024-03-21 1929 PA3JD         599  IN3FHE        599  Helga      88                                       
+QSO:  7000 CW 2024-03-21 1935 PA3JD         599  OK5MM         599  Vit        NM                                       
+END-OF-LOG:

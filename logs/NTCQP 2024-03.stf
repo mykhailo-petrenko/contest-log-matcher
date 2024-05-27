@@ -1,0 +1,30 @@
+STF1
+#Data written "22.03.2024  18:24"
+#STF-Export generated with ARcomm HAM Office (Rel.6.298.4) http://www.hamoffice.de
+Header
+Contest      NTCQP 03/2024
+MyCall       DJ6QQ
+Operators    DJ6QQ
+Category     Electronic keying
+MailAddress  Uwe Greggersen
+MailAddress  Hurststr. 9
+MailAddress  Gummersbach
+MailAddress  51645
+MailAddress  Germany
+EMail        DJ6QQ@DARC.DE
+Club         NTC #233
+Specific     G07
+Power        100 W
+Soapbox      tnx fr contest
+Soapbox
+QsoOrder     Date Time Band Mode Call SRst RRst 
+EndHeader
+
+QsoList
+ 20240321 1930 80    CW     ON6NL          599 Uwe 233  599 Anton 154
+ 20240321 1942 80    CW     PA3EEG         599 Uwe 233  599 Ruud 5
+ 20240321 1946 80    CW     DL5XL          599 Uwe 233  599 Felix 80
+ 20240321 1948 80    CW     PA7F           599 Uwe 233  599 Frank 181
+ 20240321 1954 80    CW     PA0CMU         599 Uwe 233  599 Carel 76
+ 20240321 1957 80    CW     PA0SIM         599 Uwe 233  599 Jan 59
+EndQSOList

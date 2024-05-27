@@ -1,0 +1,74 @@
+START-OF-LOG: 3.0
+LOCATION: DX
+CALLSIGN: PA7F
+CLUB: Spectre
+CONTEST: NTC-QP
+CATEGORY-OPERATOR: SINGLE-OP
+CATEGORY-ASSISTED: NON-ASSISTED
+CATEGORY-BAND: ALL
+CATEGORY-MODE: CW
+CATEGORY-POWER: HIGH
+CATEGORY-STATION: FIXED
+CATEGORY-TRANSMITTER: ONE
+CLAIMED-SCORE: 88
+OPERATORS: PA7F
+NAME: Frank
+ADDRESS: Middellaan 24
+ADDRESS-CITY: Bilthoven
+ADDRESS-STATE-PROVINCE: 
+ADDRESS-POSTALCODE: 3721PH
+ADDRESS-COUNTRY: NETHERLANDS
+GRID-LOCATOR: JO22OC
+EMAIL: f.e.vandijk@ziggo.nl
+CREATED-BY: N1MM Logger+ 1.0.10224.0
+QSO: 14052 CW 2024-03-21 1900 PA7F          599  FRANK 181        OE8TIR        599  STEFAN     105      
+QSO: 14051 CW 2024-03-21 1901 PA7F          599  FRANK 181        I5ECW         599  VANNI      164      
+QSO: 14054 CW 2024-03-21 1904 PA7F          599  FRANK 181        F8DTU         599  FRANK      49       
+QSO:  7032 CW 2024-03-21 1907 PA7F          599  FRANK 181        S51Z          599  ZOKI       226      
+QSO:  7032 CW 2024-03-21 1908 PA7F          599  FRANK 181        DJ9BM         599  VOLKER     084      
+QSO:  7032 CW 2024-03-21 1908 PA7F          599  FRANK 181        PA3GPX        599  RENE       NM       
+QSO:  7032 CW 2024-03-21 1909 PA7F          599  FRANK 181        GW4OKT        599  KEITH      106      
+QSO:  7032 CW 2024-03-21 1910 PA7F          599  FRANK 181        OK2BMA        599  PAVEL      062      
+QSO:  7032 CW 2024-03-21 1911 PA7F          599  FRANK 181        PA3JD         599  JOOP       112      
+QSO:  7032 CW 2024-03-21 1913 PA7F          599  FRANK 181        PA0XAW        599  AGE        119      
+QSO:  7032 CW 2024-03-21 1914 PA7F          599  FRANK 181        SV9RPE        599  DICK       210      
+QSO:  7032 CW 2024-03-21 1914 PA7F          599  FRANK 181        PA0SIM        599  JAN        059      
+QSO:  7032 CW 2024-03-21 1915 PA7F          599  FRANK 181        OK1WSL        599  JOSEF      NM       
+QSO:  7032 CW 2024-03-21 1916 PA7F          599  FRANK 181        ON7DQ         599  LUC        098      
+QSO:  7032 CW 2024-03-21 1916 PA7F          599  FRANK 181        PA0RBA        599  RIENUS     96       
+QSO:  7032 CW 2024-03-21 1918 PA7F          599  FRANK 181        OK5MM         599  VIT        NM       
+QSO:  7032 CW 2024-03-21 1918 PA7F          599  FRANK 181        M7TSM         599  ALAN       NM       
+QSO:  7032 CW 2024-03-21 1920 PA7F          599  FRANK 181        PE4KH         599  KOOS       165      
+QSO:  7032 CW 2024-03-21 1920 PA7F          599  FRANK 181        PE2V          599  VINCENT    252      
+QSO:  7032 CW 2024-03-21 1922 PA7F          599  FRANK 181        F6JOE         599  JEAN       44       
+QSO:  7032 CW 2024-03-21 1923 PA7F          599  FRANK 181        OK2BTK        599  PETR       NM       
+QSO:  7032 CW 2024-03-21 1924 PA7F          599  FRANK 181        SP7OGP        599  PIOTR      111      
+QSO:  7032 CW 2024-03-21 1925 PA7F          599  FRANK 181        G0TRT         599  CIE        NM       
+QSO:  7032 CW 2024-03-21 1925 PA7F          599  FRANK 181        ON9TT         599  MARC       196      
+QSO:  7032 CW 2024-03-21 1926 PA7F          599  FRANK 181        DG5CW         599  TOM        247      
+QSO:  7032 CW 2024-03-21 1927 PA7F          599  FRANK 181        DJ3TU         599  NORBERT    146      
+QSO:  7032 CW 2024-03-21 1928 PA7F          599  FRANK 181        LB2WD         599  HELGE      NM       
+QSO:  7032 CW 2024-03-21 1929 PA7F          599  FRANK 181        OK1LO         599  LAD        215      
+QSO:  3557 CW 2024-03-21 1932 PA7F          599  FRANK 181        DK3ABM        599  GOSSE      222      
+QSO:  3557 CW 2024-03-21 1933 PA7F          599  FRANK 181        DG5CW         599  TOM        247      
+QSO:  3557 CW 2024-03-21 1933 PA7F          599  FRANK 181        ON6NL         599  ANTON      154      
+QSO:  3557 CW 2024-03-21 1934 PA7F          599  FRANK 181        PA0M          599  THIEU      110      
+QSO:  7034 CW 2024-03-21 1937 PA7F          599  FRANK 181        M0MPM         599  MICHAEL    227      
+QSO:  7034 CW 2024-03-21 1938 PA7F          599  FRANK 181        PA0HTT        599  HENK       116      
+QSO:  7034 CW 2024-03-21 1939 PA7F          599  FRANK 181        PI4NTC        599  JO         200      
+QSO:  7034 CW 2024-03-21 1940 PA7F          599  FRANK 181        OM6MS         599  MIKI       NM       
+QSO:  7034 CW 2024-03-21 1941 PA7F          599  FRANK 181        I5ECW         599  VANNI      164      
+QSO:  7034 CW 2024-03-21 1942 PA7F          599  FRANK 181        ON6NL         599  ANTON      154      
+QSO:  3553 CW 2024-03-21 1945 PA7F          599  FRANK 181        SP7OGP        599  PIOTR      111      
+QSO:  3553 CW 2024-03-21 1947 PA7F          599  FRANK 181        LB2WD         599  HELGE      NM       
+QSO:  3553 CW 2024-03-21 1948 PA7F          599  FRANK 181        DJ6QQ         599  UWE        233      
+QSO:  3553 CW 2024-03-21 1951 PA7F          599  FRANK 181        M0SDB         579  DANNY      254      
+QSO:  3553 CW 2024-03-21 1952 PA7F          599  FRANK 181        GW4OKT        599  KEITH      106      
+QSO:  3553 CW 2024-03-21 1953 PA7F          599  FRANK 181        OK2NO         599  JARDA      NM       
+QSO:  3553 CW 2024-03-21 1954 PA7F          599  FRANK 181        PA0RBA        599  RIENUS     96       
+QSO:  3553 CW 2024-03-21 1954 PA7F          599  FRANK 181        DL5XL         599  FELIX      80       
+QSO:  3553 CW 2024-03-21 1956 PA7F          599  FRANK 181        IK1YRA        599  CAREL      135      
+QSO:  3553 CW 2024-03-21 1957 PA7F          599  FRANK 181        OM6MS         599  MIKI       NM       
+QSO:  3553 CW 2024-03-21 1958 PA7F          599  FRANK 181        OK1WSL        599  JOSEF      NM       
+QSO:  3553 CW 2024-03-21 1959 PA7F          599  FRANK 181        PA3GPX        599  RENE       NM       
+END-OF-LOG:
