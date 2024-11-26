@@ -1,9 +1,9 @@
 from os import listdir
 from os.path import isfile, join
 
-from cabrillo.parser import parse_log_file, InvalidLogException, InvalidQSOException
+from cabrillo.cabrillo.parser import parse_log_file, InvalidLogException, InvalidQSOException
 
-cab = parse_log_file('logs/DL5XL.log')
+# cab = parse_log_file('logs/DL5XL.log')
 # cab = parse_log_file('logs/PA7F.log')
 
 # print(cab.callsign)
