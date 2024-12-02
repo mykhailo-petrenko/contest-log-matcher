@@ -41,7 +41,7 @@ def test_all_attributes():
                    category_power='HIGH', category_mode='CW',
                    category_transmitter='ONE', category_overlay='TB-WIRES',
                    category_station='FIXED', category_time='24-HOURS',
-                   certificate=True, email='test@test.arpa', offtime=offtime,
+                   certificate=True, email='tests@tests.arpa', offtime=offtime,
                    claimed_score=24, club='Yankee Clipper Contest Club',
                    location='WMA', created_by='WriteLog V10.72C',
                    name='Randy Thompson', address=['11 Hollis Street'],
@@ -67,7 +67,7 @@ def test_all_attributes():
     assert cab.category_station == 'FIXED'
     assert cab.category_time == '24-HOURS'
     assert cab.certificate is True
-    assert cab.email == 'test@test.arpa'
+    assert cab.email == 'tests@tests.arpa'
     assert cab.offtime == offtime
     assert cab.claimed_score == 24
     assert cab.club == 'Yankee Clipper Contest Club'
@@ -85,7 +85,7 @@ def test_all_attributes():
     assert cab.soapbox == ['Put your comments here.',
                            'Use multiple lines if needed.']
 
-    # Writing test.
+    # Writing tests.
     correct = """START-OF-LOG: 3.0
 CALLSIGN: AA1ZZZ
 OPERATORS: K5ZD KX0XXX
@@ -104,7 +104,7 @@ CATEGORY-OVERLAY: TB-WIRES
 OFFTIME: 2009-05-30 0003 2009-05-30 0005
 CLUB: Yankee Clipper Contest Club
 NAME: Randy Thompson
-EMAIL: test@test.arpa
+EMAIL: tests@tests.arpa
 LOCATION: WMA
 ADDRESS: 11 Hollis Street
 ADDRESS-CITY: Uxbridge
