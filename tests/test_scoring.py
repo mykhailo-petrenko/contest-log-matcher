@@ -63,3 +63,10 @@ def test_club_station_qso():
     assert results['total'] == 1
     assert results['40m'] == 1
     assert results['score'] == 3
+
+def test_callsign_of_the_month_qso():
+    results = _init_qso_results("14058 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PA0SINTERKLAAS        599  JO         200")
+
+    assert results['total'] == 1
+    assert results['20m'] == 1
+    assert results['score'] == 5

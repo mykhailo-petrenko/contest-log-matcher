@@ -20,7 +20,7 @@ def test_contest_params():
     assert rules.start_hour == "1800"
     assert rules.end_hour == "2100"
     assert rules.bands == 3
-    assert rules.scores == 3
+    assert rules.scores == 4
 
 
 def test_bands():
@@ -39,5 +39,6 @@ def test_scores():
     assert rules.score(1).name == 'Club Station'
     assert rules.score(2).name == 'Member'
     assert rules.score(3).name == 'NM'
+    assert rules.score(4).name == 'Callsign of the month'
 
-    assert len(rules.get_scores()) == 3
+    assert len(rules.get_scores()) == 4

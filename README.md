@@ -31,3 +31,22 @@ Validate log and calculate scores
 
 - [ ] Admin endpoint: Contest create, list, get, archive
 - [ ] Choose DB: sqlite?
+
+## Build docker
+```shell
+docker buildx build --platform=linux/amd64 \
+  -t ur3amp/contest-log-matcher:latest \
+  -t ur3amp/contest-log-matcher:1.0.0 .
+```
+
+
+```shell
+docker image push ur3amp/contest-log-matcher:latest
+docker image push ur3amp/contest-log-matcher:1.0.0
+```
+
+## Run in docker
+
+```shell
+docker run --rm -p "8080:8080" ur3amp/contest-log-matcher:latest 
+```

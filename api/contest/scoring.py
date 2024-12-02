@@ -42,6 +42,7 @@ class Scoring:
             score *= rule.multiplier
             break
 
+        scores_multiplier = 1
         for rule in self._rules.get_scores():
             value = ''
 
@@ -54,8 +55,9 @@ class Scoring:
             if not re.match(rule.regexp, value):
                 continue
 
-            score *= rule.multiplier
-            break
+            scores_multiplier = max(scores_multiplier, rule.multiplier)
+
+        score *= scores_multiplier
 
         results['total'] += 1
         results['score'] += score
