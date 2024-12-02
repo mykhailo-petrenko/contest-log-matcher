@@ -21,12 +21,13 @@ Just validate cab log
 ### `/log/stats`
 Validate log and calculate scores
 
-## @TODO (v1:
-[x] Validation method. Takes text as an input and return OK and serialized log in case of success or Error with a basic error description.
-[x] Setup REST server. Use FastAPI, Uvicorn.
-[x] Expose validation method via REST api.
-[x] Design contest log submission and contest evaluation API
-[x] LOG: Submit log to check results
+## @TODO (v1):
 
-- Admin endpoint: Contest create, list, get, archive
-- Choose DB: sqlite?
+- [x] Validation method. Takes text as an input and return OK and serialized log in case of success or Error with a basic error description.
+- [x] Setup REST server. Use FastAPI, Uvicorn.
+- [x] Expose validation method via REST api.
+- [x] Design contest log submission and contest evaluation API
+- [x] LOG: Submit log to check results
+
+- [ ] Admin endpoint: Contest create, list, get, archive
+- [ ] Choose DB: sqlite?
