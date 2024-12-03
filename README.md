@@ -1,5 +1,7 @@
-# Log Matcher
-This is a REST service for a contest log scoring (without cross-checking yet) 
+# Log Matcher 
+This is a REST service for a contest log scoring (without cross-checking yet).
+
+[https://contest-log-matcher.petrenko.nl/](https://contest-log-matcher.petrenko.nl/)
 
 ## Environment
 Install venv
