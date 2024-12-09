@@ -49,7 +49,13 @@ class Scoring:
             if rule.field == 'dx_call':
                 value = qso.dx_call
 
-            if rule.field == 'dx_exch[2]':
+            if rule.field == 'dx_exch[0]' and len(qso.dx_exch) >= 1:
+                value = qso.dx_exch[0]
+
+            if rule.field == 'dx_exch[1]' and len(qso.dx_exch) >= 2:
+                value = qso.dx_exch[1]
+
+            if rule.field == 'dx_exch[2]' and len(qso.dx_exch) >= 3:
                 value = qso.dx_exch[2]
 
             if not re.match(rule.regexp, value):

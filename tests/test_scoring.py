@@ -70,3 +70,10 @@ def test_callsign_of_the_month_qso():
     assert results['total'] == 1
     assert results['20m'] == 1
     assert results['score'] == 5
+
+
+def test_should_not_fail_without_control_number():
+    results = _init_qso_results("21000 CW 2016-07-09 1340 DJ3EI         599 28     TM0HQ         599 REF   ")
+
+    assert results['total'] == 1
+    assert results['score'] == 1
