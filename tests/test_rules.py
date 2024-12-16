@@ -2,7 +2,7 @@ import os
 from api.contest.rules import Rules
 from utils.file import read_ini
 
-ntcqp_valid_rules_path = os.path.dirname(__file__) + os.sep + 'NTCQP-rules.ini'
+ntcqp_valid_rules_path = os.path.dirname(__file__) + os.sep + 'NTCQP-Dec-rules.ini'
 ntcqp_valid_rules = read_ini(ntcqp_valid_rules_path)
 
 
@@ -20,7 +20,8 @@ def test_contest_params():
     assert rules.start_hour == "1800"
     assert rules.end_hour == "2100"
     assert rules.bands == 3
-    assert rules.scores == 4
+    assert rules.scores == 3
+    assert rules.extra_points == 1
 
 
 def test_bands():
@@ -39,6 +40,12 @@ def test_scores():
     assert rules.score(1).name == 'Club Station'
     assert rules.score(2).name == 'Member'
     assert rules.score(3).name == 'NM'
-    assert rules.score(4).name == 'Callsign of the month'
 
-    assert len(rules.get_scores()) == 4
+    assert len(rules.get_scores()) == 3
+
+
+def test_extra_points():
+    rules = Rules(ntcqp_valid_rules)
+
+    assert rules.extra_point(1).name == 'Callsign of the month'
+    assert len(rules.get_extra_points()) == 1

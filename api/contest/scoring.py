@@ -27,9 +27,27 @@ class Scoring:
 
         return results
 
+    @staticmethod
+    def _get_qso_field(qso: QSO, field: str)-> str | None:
+        if field == 'dx_call':
+            return qso.dx_call
+
+        if field == 'dx_exch[0]' and len(qso.dx_exch) >= 1:
+            return qso.dx_exch[0]
+
+        if field == 'dx_exch[1]' and len(qso.dx_exch) >= 2:
+            return qso.dx_exch[1]
+
+        if field == 'dx_exch[2]' and len(qso.dx_exch) >= 3:
+            return qso.dx_exch[2]
+
+        return None
+
+
     def calc_qso_scores(self, qso: QSO, results: dict):
-        print(qso)
-        score = 1
+        points_total = 0
+        multiplier_total = 1
+        extra_points_total = 0
 
         for rule in self._rules.get_bands():
             if not re.match(rule.regexp, qso.freq):
@@ -39,31 +57,33 @@ class Scoring:
                 results[rule.name] = 0
 
             results[rule.name] += 1
-            score *= rule.multiplier
-            break
+            multiplier_total *= rule.multiplier
 
-        scores_multiplier = 1
         for rule in self._rules.get_scores():
-            value = ''
+            value = self._get_qso_field(qso, rule.field)
 
-            if rule.field == 'dx_call':
-                value = qso.dx_call
-
-            if rule.field == 'dx_exch[0]' and len(qso.dx_exch) >= 1:
-                value = qso.dx_exch[0]
-
-            if rule.field == 'dx_exch[1]' and len(qso.dx_exch) >= 2:
-                value = qso.dx_exch[1]
-
-            if rule.field == 'dx_exch[2]' and len(qso.dx_exch) >= 3:
-                value = qso.dx_exch[2]
+            if value is None:
+                continue
 
             if not re.match(rule.regexp, value):
                 continue
 
-            scores_multiplier = max(scores_multiplier, rule.multiplier)
+            multiplier_total = multiplier_total * rule.multiplier
+            points_total = max(points_total, rule.points)
 
-        score *= scores_multiplier
+        for rule in self._rules.get_extra_points():
+            value = self._get_qso_field(qso, rule.field)
+
+            if value is None:
+                continue
+
+            if not re.match(rule.regexp, value):
+                continue
+
+            multiplier_total = multiplier_total * rule.multiplier
+            extra_points_total = extra_points_total + rule.extra_points
+
+        score = (points_total + extra_points_total) * multiplier_total
 
         results['total'] += 1
         results['score'] += score

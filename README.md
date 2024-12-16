@@ -38,13 +38,13 @@ Validate log and calculate scores
 ```shell
 docker buildx build --platform=linux/amd64 \
   -t ur3amp/contest-log-matcher:latest \
-  -t ur3amp/contest-log-matcher:1.0.1 .
+  -t ur3amp/contest-log-matcher:1.0.2 .
 ```
 
 
 ```shell
 docker image push ur3amp/contest-log-matcher:latest
-docker image push ur3amp/contest-log-matcher:1.0.1
+docker image push ur3amp/contest-log-matcher:1.0.2
 ```
 
 ## Run in docker

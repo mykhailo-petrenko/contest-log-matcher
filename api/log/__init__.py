@@ -21,6 +21,20 @@ async def log_default():
 
 @router.post("/validate")
 async def log_evaluate(body: str = Body(media_type='text/plain')):
+    """
+    Validate log and turns
+
+    ```
+        {
+            "status": "ok",
+            "log": dict() // parsed log in json format
+        } in case of success
+    ```
+    or
+    ```
+        {"status": "error", "errorType": str, "message": str,}
+    ```
+    """
     try:
         log = parse_log_text(body, ignore_unknown_key=True, check_categories=False)
     except InvalidLogException as error:
@@ -49,6 +63,27 @@ async def log_evaluate(body: str = Body(media_type='text/plain')):
 
 @router.post("/stats")
 async def log_stats(body: str = Body(media_type='text/plain')):
+    """
+    Evaluate and validate contest log.
+    Returns json response.
+
+
+    ```
+    {
+        "status": "ok" | "error",
+        "message": string, // in case of error
+        "results": {
+            "score": int, // evaluated score points
+            "total": int, // total qso count
+            "band80m": int, // total qso per 80m band count
+            "band40m": int, // total qso per 40m band count
+            "band20m": int, // total qso per 20m band count
+        },
+        "log": dict() // parsed log in json format
+    }
+    ```
+    """
+
     try:
         log = parse_log_text(body, ignore_unknown_key=True, check_categories=False)
     except InvalidLogException as error:

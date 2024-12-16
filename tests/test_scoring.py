@@ -8,7 +8,7 @@ from utils.file import read_ini
 
 base_path = os.path.dirname(__file__) + os.sep
 
-ntcqp_valid_rules_path = base_path + 'NTCQP-rules.ini'
+ntcqp_valid_rules_path = base_path + 'NTCQP-Dec-rules.ini'
 ntcqp_valid_rules = read_ini(ntcqp_valid_rules_path)
 log_path = base_path + 'logs' + os.sep + 'DL5XL.log'
 
@@ -21,10 +21,11 @@ def test_apply_scores():
     results = scoring.stats(log)
 
     assert results['total'] == 44
-    assert results['score'] == 81
     assert results['80m'] == 23
     assert results['40m'] == 21
     assert results['20m'] == 0
+
+    assert results['score'] == 116
 
 
 def _init_qso_results(raw_qso: str) -> dict:
@@ -65,15 +66,16 @@ def test_club_station_qso():
     assert results['score'] == 3
 
 def test_callsign_of_the_month_qso():
-    results = _init_qso_results("14058 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PA0SINTERKLAAS        599  JO         200")
+    results = _init_qso_results("14058 CW 2024-03-21 1903 DL5XL         599  FELIX 80         DL1DXL        599  JO         200")
 
     assert results['total'] == 1
     assert results['20m'] == 1
-    assert results['score'] == 5
+    # 2 points as member + 5 extra points
+    assert results['score'] == 7
 
 
 def test_should_not_fail_without_control_number():
     results = _init_qso_results("21000 CW 2016-07-09 1340 DJ3EI         599 28     TM0HQ         599 REF   ")
 
     assert results['total'] == 1
-    assert results['score'] == 1
+    assert results['score'] == 0

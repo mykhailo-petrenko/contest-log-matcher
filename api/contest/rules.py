@@ -6,12 +6,18 @@ class Rule:
     field: str
     regexp: str
     multiplier: int = 1
+    points: int = 0
+    extra_points: int = 0
 
-    def __init__(self, name: str, field: str, regexp: str, multiplier: int = 1):
+    def __init__(
+            self,
+            name: str,
+            field: str,
+            regexp: str,
+    ):
         self.name = name
         self.field = field
         self.regexp = regexp
-        self.multiplier = multiplier
 
 
 class Rules:
@@ -47,25 +53,55 @@ class Rules:
     def scores(self):
         return int(self._config['contest']['scores'])
 
+    @property
+    def extra_points(self):
+        return int(self._config['contest']['extra_points'])
+
     def band(self, band_id: int) -> Rule:
         _config = self._config[f"band{band_id}"]
 
-        return Rule(
+        rule = Rule(
             _config['name'],
             'band',
-            _config['regexp'],
-            int(_config['multiplier']),
+            _config['regexp']
         )
+
+        rule.multiplier = int(_config['multiplier'])
+
+        return rule
 
     def score(self, score_id: int) -> Rule:
         _config = self._config[f"score{score_id}"]
 
-        return Rule(
+        rule = Rule(
             _config['name'],
             _config['field'],
             _config['regexp'],
-            int(_config['multiplier']),
         )
+
+        rule.multiplier = int(_config['multiplier'])
+        rule.points = int(_config['points'])
+
+        return rule
+
+    def extra_point(self, extra_point_id: int) -> Rule | None:
+        key = f"extra_point{extra_point_id}"
+
+        if key not in self._config:
+            return None
+
+        _config = self._config[key]
+
+        rule = Rule(
+            _config['name'],
+            _config['field'],
+            _config['regexp'],
+        )
+
+        rule.multiplier = int(_config['multiplier'])
+        rule.extra_points = int(_config['extra_points'])
+
+        return rule
 
     def get_bands(self):
         _bands = []
@@ -82,6 +118,14 @@ class Rules:
             _scores.append(self.score(i))
 
         return _scores
+
+    def get_extra_points(self):
+        _extra_points = []
+
+        for i in range(1, self.extra_points+1):
+            _extra_points.append(self.extra_point(i))
+
+        return _extra_points
 
     def _validate(self):
         if not self._config.has_section('contest'):
