@@ -23,14 +23,15 @@ Just validate cab log
 ### `/log/stats`
 Validate log and calculate scores
 
-## @TODO (v1):
-
+## @TODO:
+### v1.x
 - [x] Validation method. Takes text as an input and return OK and serialized log in case of success or Error with a basic error description.
 - [x] Setup REST server. Use FastAPI, Uvicorn.
 - [x] Expose validation method via REST api.
 - [x] Design contest log submission and contest evaluation API
 - [x] LOG: Submit log to check results
 
+### v2.x
 - [ ] Admin endpoint: Contest create, list, get, archive
 - [ ] Choose DB: sqlite?
 
@@ -38,13 +39,13 @@ Validate log and calculate scores
 ```shell
 docker buildx build --platform=linux/amd64 \
   -t ur3amp/contest-log-matcher:latest \
-  -t ur3amp/contest-log-matcher:1.0.2 .
+  -t ur3amp/contest-log-matcher:1.0.3 .
 ```
 
 
 ```shell
 docker image push ur3amp/contest-log-matcher:latest
-docker image push ur3amp/contest-log-matcher:1.0.2
+docker image push ur3amp/contest-log-matcher:1.0.3
 ```
 
 ## Run in docker
