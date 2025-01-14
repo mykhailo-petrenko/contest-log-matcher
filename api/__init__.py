@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Body
+from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from starlette.responses import JSONResponse, RedirectResponse
 
@@ -14,7 +14,7 @@ def generate_openapi_schema():
     """
     return get_openapi(
         title="Contest Log Mather",
-        version="1.0.2",
+        version="1.1.0",
         description="Validate and evaluate cab logs",
         routes=app.routes,
     )

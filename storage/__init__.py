@@ -1,9 +1,14 @@
 import os
 from utils.file import read_ini
 
+valid_contests = {'NTCQP-2024-December', 'NTCQP-2025-01'}
 
-def get_contest_rules_config():
-    path_to_config = os.path.dirname(__file__) + os.path.sep + 'NTCQP-2024-December.ini'
+
+def get_contest_rules_config(contest_id=None):
+    if contest_id not in valid_contests:
+        return None
+
+    path_to_config = os.path.dirname(__file__) + os.path.sep + f'{contest_id}.ini'
     config = read_ini(path_to_config)
 
     return config

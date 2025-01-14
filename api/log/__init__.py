@@ -61,8 +61,9 @@ async def log_evaluate(body: str = Body(media_type='text/plain')):
         "log": log,
     }
 
-@router.post("/stats")
-async def log_stats(body: str = Body(media_type='text/plain')):
+
+@router.post("/stats/{contest_id}")
+async def log_stats(contest_id: str, body: str = Body(media_type='text/plain')):
     """
     Evaluate and validate contest log.
     Returns json response.
@@ -105,7 +106,15 @@ async def log_stats(body: str = Body(media_type='text/plain')):
             "message": str(error)
         }
 
-    rules_config = get_contest_rules_config()
+    rules_config = get_contest_rules_config(contest_id)
+
+    if not rules_config:
+        return {
+            "status": "error",
+            "errorType": "InvalidContestId",
+            "message": "Please provide valid contest id"
+        }
+
     rules = Rules(rules_config)
     scoring = Scoring(rules)
 
