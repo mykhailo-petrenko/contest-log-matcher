@@ -1,7 +1,10 @@
 import re
 
+from pyhamtools import LookupLib, Callinfo
 from api.contest.rules import Rules
 from cabrillo.cabrillo import Cabrillo, QSO
+
+lookup_lib = LookupLib(lookuptype="countryfile")
 
 
 class Scoring:
@@ -9,7 +12,7 @@ class Scoring:
 
     def __init__(self, rules: Rules):
         self._rules = rules
-
+        self._call_info = Callinfo(lookup_lib)
 
     def stats(self, log: Cabrillo):
         results = dict()
@@ -27,8 +30,12 @@ class Scoring:
 
         return results
 
-    @staticmethod
-    def _get_qso_field(qso: QSO, field: str)-> str | None:
+
+    def _get_qso_field(self, qso: QSO, field: str)-> str | None:
+        if field == 'get_country':
+            country = self._call_info.get_country_name(qso.dx_call)
+            return country
+
         if field == 'dx_call':
             return qso.dx_call
 
@@ -42,7 +49,6 @@ class Scoring:
             return qso.dx_exch[2]
 
         return None
-
 
     def calc_qso_scores(self, qso: QSO, results: dict):
         points_total = 0

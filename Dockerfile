@@ -4,6 +4,8 @@ LABEL authors="mykhailo@petrenko.nl"
 WORKDIR /opt/contest-log-matcher
 COPY requirements.txt ./
 
+RUN apk add libxml2-dev libxslt-dev
+
 RUN pip install -r requirements.txt
 
 

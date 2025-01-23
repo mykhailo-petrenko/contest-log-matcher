@@ -1,7 +1,14 @@
 import os
 from utils.file import read_ini
 
-valid_contests = {'NTCQP-2024-December', 'NTCQP-2025-01'}
+valid_contests = {
+    'NTCQP-2024-December',
+    'NTCQP-2025-01',
+    'NTCQP-2025-02',
+    'NTCQP-2025-03',
+    'NTCQP-2025-04',
+    'NTCQP-2025-05',
+}
 
 
 def get_contest_rules_config(contest_id=None):
