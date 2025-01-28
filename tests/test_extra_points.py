@@ -51,7 +51,7 @@ def test_member_not_dutch():
 
 def test_member_and_dutch():
     results = _parse_qso(
-        "7032 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PI4NTC        599  JO         200",
+        "7032 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PD5MI        599  JO         204",
         ntcqp_valid_rules
     )
 
@@ -60,9 +60,20 @@ def test_member_and_dutch():
     assert results['score'] == 3
 
 
+def test_special_member_and_dutch():
+    results = _parse_qso(
+        "7032 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PI4NTC        599  JO         200",
+        ntcqp_valid_rules
+    )
+
+    assert results['total'] == 1
+    assert results['40m'] == 1
+    assert results['score'] == 4
+
+
 def test_not_a_member_dutch():
     results = _parse_qso(
-        "7032 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PD4GET        599  JAAD       200",
+        "7032 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PD4GET        599  JAAD       NM",
         ntcqp_valid_rules
     )
 

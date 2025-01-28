@@ -1,10 +1,9 @@
 import re
 
-from pyhamtools import LookupLib, Callinfo
+from pyhamtools import Callinfo
 from api.contest.rules import Rules
 from cabrillo.cabrillo import Cabrillo, QSO
-
-lookup_lib = LookupLib(lookuptype="countryfile")
+from cty_plist import lookup_lib
 
 
 class Scoring:

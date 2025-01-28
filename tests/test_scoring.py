@@ -12,6 +12,7 @@ ntcqp_valid_rules_path = base_path + 'NTCQP-Dec-rules.ini'
 ntcqp_valid_rules = read_ini(ntcqp_valid_rules_path)
 log_path = base_path + 'logs' + os.sep + 'DL5XL.log'
 
+
 def test_apply_scores():
     rules = Rules(ntcqp_valid_rules)
     log = parse_log_file(log_path, ignore_unknown_key=True, check_categories=False)
@@ -43,7 +44,8 @@ def _init_qso_results(raw_qso: str) -> dict:
 
 
 def test_not_a_member_qso():
-    results = _init_qso_results("7032 CW 2024-03-21 1902 DL5XL         599  FELIX 80         OK2NO         599  JARDA      NM    ")
+    results = _init_qso_results(
+        "7032 CW 2024-03-21 1902 DL5XL         599  FELIX 80         OK2NO         599  JARDA      NM    ")
 
     assert results['total'] == 1
     assert results['40m'] == 1
@@ -51,7 +53,8 @@ def test_not_a_member_qso():
 
 
 def test_member_qso():
-    results = _init_qso_results("3556 CW 2024-03-21 1956 DL5XL         599  FELIX 80         PA3EEG        599  RUUD       5  ")
+    results = _init_qso_results(
+        "3556 CW 2024-03-21 1956 DL5XL         599  FELIX 80         PA3EEG        599  RUUD       5  ")
 
     assert results['total'] == 1
     assert results['80m'] == 1
@@ -59,14 +62,17 @@ def test_member_qso():
 
 
 def test_club_station_qso():
-    results = _init_qso_results("7032 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PI4NTC        599  JO         200")
+    results = _init_qso_results(
+        "7032 CW 2024-03-21 1903 DL5XL         599  FELIX 80         PI4NTC        599  JO         200")
 
     assert results['total'] == 1
     assert results['40m'] == 1
     assert results['score'] == 3
 
+
 def test_callsign_of_the_month_qso():
-    results = _init_qso_results("14058 CW 2024-03-21 1903 DL5XL         599  FELIX 80         DL1DXL        599  JO         200")
+    results = _init_qso_results(
+        "14058 CW 2024-03-21 1903 DL5XL         599  FELIX 80         DL1DXL        599  JO         200")
 
     assert results['total'] == 1
     assert results['20m'] == 1

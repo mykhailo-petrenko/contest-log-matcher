@@ -1,10 +1,10 @@
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, Path
 
 from api.contest.rules import Rules
 from api.contest.scoring import Scoring
 from cabrillo.cabrillo.errors import InvalidLogException, InvalidQSOException
 from cabrillo.cabrillo.parser import parse_log_text
-from storage import get_contest_rules_config
+from storage import get_contest_rules_config, VALID_CONTESTS_ID
 
 router = APIRouter(
     prefix="/log",
@@ -62,8 +62,20 @@ async def log_evaluate(body: str = Body(media_type='text/plain')):
     }
 
 
+valid_ids = "- " + "\n- ".join(list(VALID_CONTESTS_ID))
+
 @router.post("/stats/{contest_id}")
-async def log_stats(contest_id: str, body: str = Body(media_type='text/plain')):
+async def log_stats(
+        contest_id: str = Path(
+            ...,
+            description=f"Contest ID (case sensitive): \n\n{valid_ids}",
+            examples=list(VALID_CONTESTS_ID)
+        ),
+        body: str = Body(
+            media_type='text/plain',
+            description="Log in cabrillo format."
+        )
+):
     """
     Evaluate and validate contest log.
     Returns json response.

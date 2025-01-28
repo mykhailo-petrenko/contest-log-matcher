@@ -14,7 +14,7 @@ def generate_openapi_schema():
     """
     return get_openapi(
         title="Contest Log Mather",
-        version="1.1.0",
+        version="1.2.1",
         description="Validate and evaluate cab logs",
         routes=app.routes,
     )

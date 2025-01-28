@@ -1,0 +1,26 @@
+    15 January 2025 (CTY-3503)
+    VER20250115, Version entity is Corsica, TK
+
+    Added/changed Entities/Prefixes/Callsigns:
+
+	* CE6RFP is Chile, CE in ITU zone 16
+	* AT44I is Antarctica, CE9 in CQ zone 39, ITU zone 69
+	* W4ATD is United States, K in CQ zone 4, ITU zone 8
+	* KZ4DP is Alaska, KL
+	* K9P is Puerto Rico, KP4
+	* LU1MAW/D, LU4CIC/D and LU8GTA/D are all Argentina, LU
+	* LU9XEK/W is Argentina, LU in ITU zone 16
+	* R100GL, R900, UE82M and UE82ML are all European Russia, UA
+	* R8MB/1 is European Russia, UA in CQ zone 17, ITU zone 20
+	* UA9AR/P is Asiatic Russia, UA9
+	* RK4PA/9 is Asiatic Russia, UA9 in ITU zone 20
+
+    Removed Entities/Prefixes/Callsigns:
+
+	* TO4A in Martinique, FM
+	* GB5BBC and GB9OO in Scotland, GM
+	* HC5CW/8 in Galapagos Islands, HC8
+	* IZ3QBN/CRT in Italy, I
+	* KQ4CTD and W1ESE in United States, K
+	* R2024DX, RL1I/P and UE34DX in European Russia, UA
+	* UB4CLH/0 in Asiatic Russia, UA9
