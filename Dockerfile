@@ -11,12 +11,6 @@ RUN pip install -r requirements.txt
 
 FROM build
 
-COPY api ./api
-COPY cabrillo ./cabrillo
-COPY cty_plist ./cty_plist
-COPY storage ./storage
-COPY utils ./utils
-COPY entrypoint.sh ./
-COPY README.md ./
+COPY . .
 
 ENTRYPOINT ["/opt/contest-log-matcher/entrypoint.sh"]

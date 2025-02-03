@@ -3,6 +3,7 @@ import re
 from pyhamtools import Callinfo
 from api.contest.rules import Rules
 from cabrillo.cabrillo import Cabrillo, QSO
+from core.qso_query import qso_query_field
 from cty_plist import lookup_lib
 
 
@@ -29,25 +30,11 @@ class Scoring:
 
         return results
 
-
-    def _get_qso_field(self, qso: QSO, field: str)-> str | None:
+    def _get_qso_field(self, qso: QSO, field: str) -> str | None:
         if field == 'get_country':
             country = self._call_info.get_country_name(qso.dx_call)
             return country
-
-        if field == 'dx_call':
-            return qso.dx_call
-
-        if field == 'dx_exch[0]' and len(qso.dx_exch) >= 1:
-            return qso.dx_exch[0]
-
-        if field == 'dx_exch[1]' and len(qso.dx_exch) >= 2:
-            return qso.dx_exch[1]
-
-        if field == 'dx_exch[2]' and len(qso.dx_exch) >= 3:
-            return qso.dx_exch[2]
-
-        return None
+        return qso_query_field(qso, field)
 
     def calc_qso_scores(self, qso: QSO, results: dict):
         points_total = 0
@@ -65,24 +52,62 @@ class Scoring:
             multiplier_total *= rule.multiplier
 
         for rule in self._rules.get_scores():
-            value = self._get_qso_field(qso, rule.field)
+            if rule.operator == 'regexp':
+                value = self._get_qso_field(qso, rule.field)
 
-            if value is None:
-                continue
+                if value is None:
+                    continue
 
-            if not re.match(rule.regexp, value):
+                if not re.match(rule.regexp, value):
+                    continue
+            elif rule.operator == 'member_same_country':
+                dx_country = self._call_info.get_country_name(qso.dx_call)
+                de_country = self._call_info.get_country_name(qso.de_call)
+                control_number = qso_query_field(qso, 'nr')
+                is_member = re.match("[0-9]+", control_number)
+
+                if not ((dx_country == de_country) and is_member):
+                    continue
+            elif rule.operator == 'member_outside_of_country':
+                dx_country = self._call_info.get_country_name(qso.dx_call)
+                de_country = self._call_info.get_country_name(qso.de_call)
+                control_number = qso_query_field(qso, 'nr')
+                is_member = re.match("[0-9]+", control_number)
+
+                if not ((dx_country != de_country) and is_member):
+                    continue
+            else:
                 continue
 
             multiplier_total = multiplier_total * rule.multiplier
             points_total = max(points_total, rule.points)
 
         for rule in self._rules.get_extra_points():
-            value = self._get_qso_field(qso, rule.field)
+            if rule.operator == 'regexp':
+                value = self._get_qso_field(qso, rule.field)
 
-            if value is None:
-                continue
+                if value is None:
+                    continue
 
-            if not re.match(rule.regexp, value):
+                if not re.match(rule.regexp, value):
+                    continue
+            elif rule.operator == 'member_same_country':
+                dx_country = self._call_info.get_country_name(qso.dx_call)
+                de_country = self._call_info.get_country_name(qso.de_call)
+                control_number = qso_query_field(qso, 'nr')
+                is_member = re.match("[0-9]+", control_number)
+
+                if not ((dx_country == de_country) and is_member):
+                    continue
+            elif rule.operator == 'member_outside_of_country':
+                dx_country = self._call_info.get_country_name(qso.dx_call)
+                de_country = self._call_info.get_country_name(qso.de_call)
+                control_number = qso_query_field(qso, 'nr')
+                is_member = re.match("[0-9]+", control_number)
+
+                if not ((dx_country != de_country) and is_member):
+                    continue
+            else:
                 continue
 
             multiplier_total = multiplier_total * rule.multiplier
@@ -92,4 +117,3 @@ class Scoring:
 
         results['total'] += 1
         results['score'] += score
-

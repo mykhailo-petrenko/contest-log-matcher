@@ -1,0 +1,69 @@
+contest:
+  name: "The NTC Anniversary Party (NTC members outside your country +9, NTC members inside your own country +6)"
+  datetime:
+    - ["2025-01-31 19:00", "2025-01-31 21:00"]
+
+bands:
+  - name: "80m"
+    regexp: "35|80m"
+    multiplier: 1
+  - name: "40m"
+    regexp: "70|40m"
+    multiplier: 1
+  - name: "20m"
+    regexp: "14|20m"
+    multiplier: 1
+
+score:
+  - name: "Club Station"
+    multiplier: 1
+    points: 3
+    rules:
+      - operator: regexp
+        field: "dx_call"
+        regexp: "PI4NTC|PF6NTC|PG6NTC"
+
+  - name: "Member"
+    multiplier: 1
+    points: 2
+    rules:
+      - operator: regexp
+        regexp: "[0-9]+"
+        field: "dx_exch[2]"
+
+  - name: "NM"
+    multiplier: 1
+    points: 1
+    rules:
+      - operator: regexp
+        field: "dx_exch[2]"
+        regexp: "nm|NM"
+
+extra_point:
+  - name: "NTC members outside your country +9"
+    multiplier: 1
+    extra_points: 9
+    rules:
+      - operator: equal
+        parameters:
+          - operator: get_country
+            field: de_call
+          - operator: get_country
+            field: dx_call
+      - operator: regexp
+        regexp: "[0-9]+"
+        field: "dx_exch[2]"
+  - name: "NTC members inside your own country +6"
+    multiplier: 1
+    extra_points: 6
+    rules:
+      - operator: not_equal
+        parameters:
+          - operator: get_country
+            field: de_call
+          - operator: get_country
+            field: dx_call
+      - operator: regexp
+        regexp: "[0-9]+"
+        field: "dx_exch[2]"
+

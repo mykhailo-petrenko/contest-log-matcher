@@ -4,6 +4,7 @@ from utils.file import read_ini
 VALID_CONTESTS_ID = [
     'NTCQP-2024-December',
     'NTCQP-2025-01',
+    'NTCAP-2025-31',
     'NTCQP-2025-02',
     'NTCQP-2025-03',
     'NTCQP-2025-04',

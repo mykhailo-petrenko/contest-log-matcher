@@ -3,6 +3,7 @@ from configparser import ConfigParser
 
 class Rule:
     name: str
+    operator: str
     field: str
     regexp: str
     multiplier: int = 1
@@ -12,10 +13,12 @@ class Rule:
     def __init__(
             self,
             name: str,
-            field: str,
-            regexp: str,
+            operator: str | None,
+            field: str | None,
+            regexp: str | None,
     ):
         self.name = name
+        self.operator = operator or 'regexp'
         self.field = field
         self.regexp = regexp
 
@@ -62,6 +65,7 @@ class Rules:
 
         rule = Rule(
             _config['name'],
+            'regexp',
             'band',
             _config['regexp']
         )
@@ -75,8 +79,9 @@ class Rules:
 
         rule = Rule(
             _config['name'],
-            _config['field'],
-            _config['regexp'],
+            _config.get('operator', 'regexp'),
+            _config.get('field', None),
+            _config.get('regexp', None),
         )
 
         rule.multiplier = int(_config['multiplier'])
@@ -94,8 +99,9 @@ class Rules:
 
         rule = Rule(
             _config['name'],
-            _config['field'],
-            _config['regexp'],
+            _config.get('operator', 'regexp'),
+            _config.get('field', None),
+            _config.get('regexp', None),
         )
 
         rule.multiplier = int(_config['multiplier'])
