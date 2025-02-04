@@ -1,30 +1,18 @@
 from fastapi import FastAPI
-from fastapi.openapi.utils import get_openapi
-from starlette.responses import JSONResponse, RedirectResponse
+from starlette.responses import RedirectResponse
 
 from api import log
+from api.version import version
 
-app = FastAPI()
-# app = FastAPI(dependencies=[Depends(get_query_token)])
+app = FastAPI(
+    title="Contest Log Mather",
+    version=version(),
+    description="Validate and evaluate cab logs",
+    # dependencies=[Depends(get_query_token)]
+)
+
 app.include_router(log.router)
 
-def generate_openapi_schema():
-    """
-    Generate the OpenAPI schema for the FastAPI application.
-    """
-    return get_openapi(
-        title="Contest Log Mather",
-        version="1.2.4",
-        description="Validate and evaluate cab logs",
-        routes=app.routes,
-    )
-
-@app.get("/openapi.json")
-def get_openapi_endpoint():
-    """
-    Retrieve the generated OpenAPI schema.
-    """
-    return JSONResponse(content=generate_openapi_schema())
 
 @app.get("/")
 async def index():

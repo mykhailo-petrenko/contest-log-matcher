@@ -32,20 +32,24 @@ Validate log and calculate scores
 - [x] LOG: Submit log to check results
 
 ### v2.x
+- [ ] Contest config in YARN format
+- [ ] Flexible rules configuration. Composite rules to 
 - [ ] Admin endpoint: Contest create, list, get, archive
 - [ ] Choose DB: sqlite?
 
+### v3.x
+- [ ] Visual editor for contest rules
+
 ## Build docker
+
+Increment (check) the `version.txt` before build.
+
 ```shell
-docker buildx build --platform=linux/amd64 \
-  -t ur3amp/contest-log-matcher:latest \
-  -t ur3amp/contest-log-matcher:1.2.4 .
+source docker_build.sh
 ```
 
-
 ```shell
-docker image push ur3amp/contest-log-matcher:latest
-docker image push ur3amp/contest-log-matcher:1.2.4
+source docker_push.sh
 ```
 
 ## Run in docker

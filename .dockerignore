@@ -6,3 +6,5 @@
 venv
 tests
 .env
+docker_build.sh
+docker_push.sh
