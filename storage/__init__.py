@@ -11,6 +11,8 @@ VALID_CONTESTS_ID = [
     'NTCQP-2025-05',
     'NTCQP-2025-06',
     'NTCQP-2025-07',
+    'NTCQP-2025-08',
+    'NTCQP-2025-09',
 ]
 
 

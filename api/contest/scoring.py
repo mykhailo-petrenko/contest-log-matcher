@@ -26,9 +26,14 @@ class Scoring:
 
         # es = re.match(regexp, band)
         for qso in log.qso:
-            self.calc_qso_scores(qso, results)
+            self.calc_qso_scores(log, qso, results)
 
         return results
+
+    def _get_log_field(self, log: Cabrillo, field: str) -> str | None:
+        if hasattr(log, field):
+            return getattr(log, field)
+        return None
 
     def _get_qso_field(self, qso: QSO, field: str) -> str | None:
         if field == 'get_country':
@@ -36,7 +41,7 @@ class Scoring:
             return country
         return qso_query_field(qso, field)
 
-    def calc_qso_scores(self, qso: QSO, results: dict):
+    def calc_qso_scores(self, log: Cabrillo, qso: QSO, results: dict):
         points_total = 0
         multiplier_total = 1
         extra_points_total = 0
@@ -87,7 +92,9 @@ class Scoring:
                 value = self._get_qso_field(qso, rule.field)
 
                 if value is None:
-                    continue
+                    value = self._get_log_field(log, rule.field)
+                    if value is None:
+                        continue
 
                 if not re.match(rule.regexp, value):
                     continue

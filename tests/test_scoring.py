@@ -2,7 +2,7 @@ import os
 
 from api.contest.rules import Rules
 from api.contest.scoring import Scoring
-from cabrillo.cabrillo import QSO
+from cabrillo.cabrillo import QSO, Cabrillo
 from cabrillo.cabrillo.parser import parse_log_file, parse_qso
 from utils.file import read_ini
 
@@ -34,11 +34,11 @@ def _init_qso_results(raw_qso: str) -> dict:
 
     rules = Rules(ntcqp_valid_rules)
     scoring = Scoring(rules)
-
+    log = Cabrillo()
     qso: QSO = parse_qso(raw_qso, valid)
     results = dict(total=0, score=0)
 
-    scoring.calc_qso_scores(qso, results)
+    scoring.calc_qso_scores(log, qso, results)
 
     return results
 

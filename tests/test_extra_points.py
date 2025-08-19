@@ -3,7 +3,7 @@ from configparser import ConfigParser
 
 from api.contest.rules import Rules
 from api.contest.scoring import Scoring
-from cabrillo.cabrillo import QSO
+from cabrillo.cabrillo import QSO, Cabrillo
 from cabrillo.cabrillo.parser import parse_qso
 from utils.file import read_ini
 
@@ -11,7 +11,7 @@ base_path = os.path.dirname(__file__) + os.sep
 
 ntcqp_valid_rules_path = base_path + 'NTCQP-country-NL.ini'
 ntcqp_valid_rules = read_ini(ntcqp_valid_rules_path)
-
+log = Cabrillo()
 
 def _parse_qso(raw_qso: str, valid_rules: ConfigParser) -> dict:
     valid = True
@@ -22,7 +22,7 @@ def _parse_qso(raw_qso: str, valid_rules: ConfigParser) -> dict:
     qso: QSO = parse_qso(raw_qso, valid)
     results = dict(total=0, score=0)
 
-    scoring.calc_qso_scores(qso, results)
+    scoring.calc_qso_scores(log, qso, results)
 
     return results
 
